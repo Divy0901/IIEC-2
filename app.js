@@ -330,8 +330,6 @@
             <div class="span-12">${field("skills", "Technical Capabilities", user.skills)}</div>
             <div class="span-6">${field("Contact", "Emergency Contact Number", user.Contact)}</div>
             <div class="span-6">${field("linkedin", "LinkedIn URL", user.linkedin)}</div>
-            <div class="span-12">${textareaField("address", "Mailing Address", user.address)}</div>
-            <div class="span-12">${textareaField("bio", "Professional Brief", user.bio)}</div>
           </div>
           <button class="btn" type="submit">Submit Request</button>
         </form>
@@ -355,10 +353,7 @@
       <p><strong>Current Year:</strong> ${escapeHtml(user.year)}</p>
       <p><strong>Core Strengths:</strong> ${escapeHtml(user.skills)}</p>
       <p><strong>Induction Date:</strong> ${escapeHtml(user.joinedOn || "Unspecified")}</p>
-      <p><strong>Emergency Contact:</strong> ${escapeHtml(user.Contact)}</p>
       <p><strong>LinkedIn:</strong> ${user.linkedin ? `<a href="${escapeHtml(user.linkedin)}" target="_blank" rel="noreferrer">${escapeHtml(user.linkedin)}</a>` : "Not set"}</p>
-      <p><strong>Address Field:</strong> ${escapeHtml(user.address)}</p>
-      <p><strong>Overview Bio:</strong> ${escapeHtml(user.bio)}</p>
       <p><strong>Account Status:</strong> ${escapeHtml(user.status)}</p>
     `;
   }
@@ -478,10 +473,7 @@
         ${field("position", "Assigned Position", item.position || "Member", true)}
         ${field("skills", "Core Talents", item.skills || "")}
         ${field("joinedOn", "Enlistment Date", item.joinedOn || new Date().toISOString().slice(0, 10), false, "date")}
-        ${field("Contact", "Emergency Primary Contact", item.Contact || "")}
         ${field("linkedin", "LinkedIn URL", item.linkedin || "")}
-        ${textareaField("address", "Residential Reference", item.address || "")}
-        ${textareaField("bio", "Background Context", item.bio || "")}
         <label class="field"><span>Portal Access Key</span><input name="password" type="text" value="${escapeHtml(item.password || "")}" placeholder="Leave blank to auto-generate password"></label>
         <label class="field"><span>Operational State</span><select name="status"><option ${item.status === "Active" ? "selected" : ""}>Active</option><option ${item.status === "Inactive" ? "selected" : ""}>Inactive</option></select></label>
         <button class="btn" type="submit">${member ? "Save Record Modifications" : "Commit New Enlistment"}</button>
