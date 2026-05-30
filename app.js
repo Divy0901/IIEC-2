@@ -9,6 +9,7 @@
   };
 
   const portfolios = [
+    "CORE",
     "DOC & HR",
     "Event & Operation",
     "Creative Design",
